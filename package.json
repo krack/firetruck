@@ -1,0 +1,25 @@
+{
+  "name": "firetruck",
+  "version": "1.0.0",
+  "description": "firetruck on babylonJs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krack/firetruck.git"
+  },
+  "author": "krack",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/krack/firetruck/issues"
+  },
+  "homepage": "https://github.com/krack/firetruck#readme",
+  "dependencies": {
+    "bower": "^1.7.7"
+  },
+  "scripts": {
+    "postinstall": "bower install"
+ }
+}
