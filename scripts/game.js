@@ -2,15 +2,13 @@ var CreateGameScene = function (engine) {
     // create a basic BJS Scene object
     var scene = new BABYLON.Scene(engine);
 
-    var camera = new BABYLON.FreeCamera('camera1', new BABYLON.Vector3(0, 5,-10), scene);
-
-    // target the camera to scene origin
-   // camera.setTarget(BABYLON.Vector3.Zero());
-    camera.keysUp = [90]; // Touche Z
-    camera.keysDown = [83]; // Touche S
-    camera.keysLeft = [81]; // Touche Q
-    camera.keysRight = [68]; // Touche D;
-
+     var camera = new BABYLON.FollowCamera("FollowCamera", new BABYLON.Vector3(10, 60, -100), scene);
+ 
+    camera.radius = 30; // how far from the object to follow
+    camera.heightOffset = 10; // how high above the object to place the camera
+    camera.rotationOffset = 0; // the viewing angle
+    camera.cameraAcceleration = 0.05 // how fast to move
+    camera.maxCameraSpeed = 20 // speed limit
 
     // create a basic light, aiming 0,1,0 - meaning, to the sky
     var light = new BABYLON.HemisphericLight('light1', new BABYLON.Vector3(0,1,0), scene);
@@ -61,7 +59,6 @@ var CreateGameScene = function (engine) {
             if (!scene)
                 return;
 
-            //console.log(evt.keyCode);
 
             if (evt.keyCode == 32) {
 
@@ -117,7 +114,7 @@ var CreateGameScene = function (engine) {
 
             if (scene.isReady()) {
                 
-                camera.target = fireTruck.position;
+                camera.target = fireTruck;
 
                 //SPEED
                 if (accelerate && speed < 0.5) {
@@ -142,24 +139,12 @@ var CreateGameScene = function (engine) {
                     }
                 }
                 
-                /*for (var i = 0; i < allTires.length; i++) {
-                    allTires[i].rotation.x -= speed;
-                }*/
-
-
-
-                //Test Collisions
-              /*  if (border1.intersectsMesh(boundingBox, false) || border2.intersectsMesh(boundingBox, false)) {
-                    speed = -speed;
-                    
-                }*/
+            
 
                 //POSITION
                 fireTruck.position.z -= Math.cos(fireTruck.rotation.y) * speed;
                 fireTruck.position.x -= Math.sin(fireTruck.rotation.y) * speed;
 
-               /* boundingBox.position = fireTruck.position;
-                boundingBox.rotation = fireTruck.rotation;*/
 
             }
 
