@@ -29,7 +29,7 @@ var CreateGameScene = function (engine) {
           // create a built-in "ground" shape; its constructor takes the same 5 params as the sphere's one
         var ground = BABYLON.Mesh.CreateGround('ground1', 1000, 1000, 2, scene);
         var materialGround=new BABYLON.StandardMaterial("groundMaterial", scene);
-        materialGround.diffuseTexture = new BABYLON.Texture("images/textures/ground.jpg", scene);
+        materialGround.diffuseTexture = new BABYLON.Texture("assets/images/textures/ground.jpg", scene);
         ground.material = materialGround;
 
 
@@ -41,7 +41,7 @@ var CreateGameScene = function (engine) {
       //  skybox.infiniteDistance = true;
         skyboxMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
         skyboxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
-        skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("images/textures/skybox/skybox", scene);
+        skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("assets/images/textures/skybox/skybox", scene);
         skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
 
     }
@@ -150,7 +150,7 @@ var CreateGameScene = function (engine) {
 
         });
 
-        var gunshot = new BABYLON.Sound("gunshot", "sounds/siren.mp3", scene, null, { loop: true, autoplay: false });
+        var gunshot = new BABYLON.Sound("gunshot", "assets/sounds/siren.mp3", scene, null, { loop: true, autoplay: false });
 
      
         var startedSiren = false;
